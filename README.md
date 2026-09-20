@@ -2,25 +2,6 @@
 
 A skill for Codex and Claude Code that turns a software idea into a practical commercial product plan. It helps users evaluate customer value, feasibility, costs, business models, and responsible use of other people's work.
 
-## What it does
-
-- Collects the important details through short, focused questions.
-- Researches relevant products, prices, terms, and official rules.
-- Rates relevant aspects from 0–10, with evidence and confidence. Unknowns stay unscored.
-- Estimates development effort, operating costs, and business economics.
-- Explains the business model with a chart showing users, value, payments, and costs.
-- Checks ownership, permissions, licenses, attribution, and relevant legal questions.
-- Provides prioritized actions with owners, effort, dependencies, and completion criteria.
-- Offers an optional PDF slide deck after the report is complete.
-
-Scores are planning judgments, not probabilities of success. Rights and legal checks identify issues and practical next steps; they do not guarantee legal safety.
-
-## Conversation flow
-
-**Idea → focused questions → research and provisional findings → final follow-up questions → report → optional PDF slides → implementation when requested**
-
-The skill uses the latest answers and avoids repeating completed stages. Users can answer “undecided” when they need help making a choice. Question forms are used when supported by the host; chat is the fallback.
-
 ## Install
 
 These commands install **this skill**, assuming Git and your chosen app are already installed. Copy the appropriate block into a **macOS, Linux, or WSL terminal**. The examples use the default personal skills directories.
@@ -66,6 +47,25 @@ git -C "$HOME/.claude/skills/idea-to-product" pull --ff-only
 These update commands apply to Git clones made with the instructions above. If you installed a copied folder or used another skills location, update that existing copy instead. Preserve your edits before replacing files. A clone command will stop if its destination is already nonempty; do not delete an existing installation just to rerun it.
 
 A repository checkout outside the skills directory and an installed skill are separate copies. Updating one does not automatically update the other. Avoid installing a second copy of the same skill in another folder for the same app.
+
+## What it does
+
+- Collects the important details through short, focused questions.
+- Researches relevant products, prices, terms, and official rules.
+- Rates relevant aspects from 0–10, with evidence and confidence. Unknowns stay unscored.
+- Estimates development effort, operating costs, and business economics.
+- Explains the business model with a chart showing users, value, payments, and costs.
+- Checks ownership, permissions, licenses, attribution, and relevant legal questions.
+- Provides prioritized actions with owners, effort, dependencies, and completion criteria.
+- Offers an optional PDF slide deck after the report is complete.
+
+Scores are planning judgments, not probabilities of success. Rights and legal checks identify issues and practical next steps; they do not guarantee legal safety.
+
+## Conversation flow
+
+**Idea → focused questions → research and provisional findings → final follow-up questions → report → optional PDF slides → implementation when requested**
+
+The skill uses the latest answers and avoids repeating completed stages. Users can answer “undecided” when they need help making a choice. Question forms are used when supported by the host; chat is the fallback.
 
 ## Sample usage
 
