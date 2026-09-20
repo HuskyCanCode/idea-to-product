@@ -1,6 +1,6 @@
 # Idea to Product
 
-A Codex skill for turning a software idea into a practical commercial product plan. It helps users evaluate customer value, feasibility, costs, business models, and responsible use of other people's work.
+A skill for Codex and Claude Code that turns a software idea into a practical commercial product plan. It helps users evaluate customer value, feasibility, costs, business models, and responsible use of other people's work.
 
 ## What it does
 
@@ -21,25 +21,110 @@ Scores are planning judgments, not probabilities of success. Rights and legal ch
 
 The skill uses the latest answers and avoids repeating completed stages. Users can answer “undecided” when they need help making a choice. Question forms are used when supported by the host; chat is the fallback.
 
-## Use in Codex
+## Install
 
-Place this repository's folder in your personal Codex skills directory, usually `~/.codex/skills/idea-to-product`. Keep `SKILL.md`, `agents/`, and `references/` together. If a version is already installed, preserve any changes before replacing it.
+These commands install **this skill**, assuming Git and your chosen app are already installed. Copy the appropriate block into a **macOS, Linux, or WSL terminal**. The examples use the default personal skills directories.
 
-Start a new task and invoke the skill, for example:
+**Private repository:** you need access to `HuskyCanCode/idea-to-product` and GitHub SSH authentication configured on your computer. Being signed in to GitHub in a browser alone does not configure Git access.
+
+### Codex
+
+```bash
+mkdir -p "$HOME/.agents/skills"
+git clone git@github.com:HuskyCanCode/idea-to-product.git "$HOME/.agents/skills/idea-to-product"
+```
+
+This installs the skill for use across your projects. Open a new Codex session and type `$idea-to-product` in the prompt. If it does not appear, restart Codex. The personal path and invocation follow the [official Codex skills documentation](https://learn.chatgpt.com/docs/build-skills).
+
+### Claude Code
+
+```bash
+mkdir -p "$HOME/.claude/skills"
+git clone git@github.com:HuskyCanCode/idea-to-product.git "$HOME/.claude/skills/idea-to-product"
+```
+
+Start a new Claude Code session and type `/idea-to-product` in the prompt. Restart Claude Code if it was running before the skills directory was created. See the [official Claude Code skills documentation](https://code.claude.com/docs/en/skills) for personal skills and slash commands.
+
+The same `SKILL.md` and reference files are used in both apps. `agents/openai.yaml` provides optional Codex metadata; it is not required for the Claude Code workflow. Forms, browsing, charts, and PDF generation depend on the tools available in each app.
+
+### Update an existing installation
+
+Run only the command for the app you installed:
+
+**Codex**
+
+```bash
+git -C "$HOME/.agents/skills/idea-to-product" pull --ff-only
+```
+
+**Claude Code**
+
+```bash
+git -C "$HOME/.claude/skills/idea-to-product" pull --ff-only
+```
+
+These update commands apply to Git clones made with the instructions above. If you installed a copied folder or used another skills location, update that existing copy instead. Preserve your edits before replacing files. A clone command will stop if its destination is already nonempty; do not delete an existing installation just to rerun it.
+
+A repository checkout outside the skills directory and an installed skill are separate copies. Updating one does not automatically update the other. Avoid installing a second copy of the same skill in another folder for the same app.
+
+## Sample usage
+
+Paste these examples into the **app's conversation**, not your terminal.
+
+### Evaluate a new idea
+
+**In Codex:**
 
 ```text
 $idea-to-product I want to build a scheduling tool for independent tutors.
-Help me evaluate the idea, estimate costs, and plan a first version.
+Help me evaluate demand, compare business models, estimate costs, and plan
+a first version. Check the rights and attribution requirements for any
+third-party tools or materials. Ask follow-up questions before the final report.
 ```
 
-You can also continue an existing evaluation:
+**In Claude Code:**
 
 ```text
-$idea-to-product Update my plan using a one-time purchase model instead
-of a subscription, and explain how that changes the economics.
+/idea-to-product I want to build a scheduling tool for independent tutors.
+Help me evaluate demand, compare business models, estimate costs, and plan
+a first version. Check the rights and attribution requirements for any
+third-party tools or materials. Ask follow-up questions before the final report.
 ```
 
-A repository checkout outside the skills directory and an installed skill are separate copies. Updating one does not automatically update the other.
+### What the conversation looks like
+
+An illustrative exchange; the questions adapt to what you have already shared:
+
+> **You:** I want to build a scheduling tool for independent tutors.
+>
+> **Assistant:** Where would you launch first? What is the biggest scheduling problem for these tutors? Who would pay for the service?
+>
+> **You:** Start with adult language tutors in my city. They spend too much time arranging lessons through messages. Tutors would pay monthly; my budget is undecided.
+>
+> **Assistant:** I'll compare existing options and estimate a first version. Before finalizing the report, should it only schedule lessons, or also collect payments? Would tutors connect their own calendars with permission?
+>
+> **You:** Scheduling only, with permission to connect their calendars.
+
+After researching the relevant facts and resolving material questions, the skill provides a scored assessment, cost ranges, a business-model map, an achievable first version, rights checks, and prioritized next actions. Missing evidence stays visible; it is not turned into a made-up score.
+
+### Revise the plan or request slides
+
+Continue in the same conversation in either app:
+
+```text
+Update my plan using a one-time purchase model instead of a subscription.
+Explain how that changes the costs, business model, and next actions.
+```
+
+After the final report, the skill offers an optional PDF deck. To accept:
+
+```text
+Yes, create PDF slides from the final report. Start with the idea and cost
+estimate, then show the business-model map, plan, financial details,
+legal and rights research, next actions, and a linked sources appendix.
+```
+
+PDF creation requires suitable document-generation tools in your environment; installing this skill alone does not install those tools.
 
 ## Tools and optional outputs
 
