@@ -6,13 +6,11 @@ A skill for Codex and Claude Code that turns a software idea into a practical co
 
 These commands install **this skill**, assuming Git and your chosen app are already installed. Copy the appropriate block into a **macOS, Linux, or WSL terminal**. The examples use the default personal skills directories.
 
-**Private repository:** you need access to `HuskyCanCode/idea-to-product` and GitHub SSH authentication configured on your computer. Being signed in to GitHub in a browser alone does not configure Git access.
-
 ### Codex
 
 ```bash
 mkdir -p "$HOME/.agents/skills"
-git clone git@github.com:HuskyCanCode/idea-to-product.git "$HOME/.agents/skills/idea-to-product"
+git clone https://github.com/HuskyCanCode/idea-to-product.git "$HOME/.agents/skills/idea-to-product"
 ```
 
 This installs the skill for use across your projects. Open a new Codex session and type `$idea-to-product` in the prompt. If it does not appear, restart Codex. The personal path and invocation follow the [official Codex skills documentation](https://learn.chatgpt.com/docs/build-skills).
@@ -21,7 +19,7 @@ This installs the skill for use across your projects. Open a new Codex session a
 
 ```bash
 mkdir -p "$HOME/.claude/skills"
-git clone git@github.com:HuskyCanCode/idea-to-product.git "$HOME/.claude/skills/idea-to-product"
+git clone https://github.com/HuskyCanCode/idea-to-product.git "$HOME/.claude/skills/idea-to-product"
 ```
 
 Start a new Claude Code session and type `/idea-to-product` in the prompt. Restart Claude Code if it was running before the skills directory was created. See the [official Claude Code skills documentation](https://code.claude.com/docs/en/skills) for personal skills and slash commands.
