@@ -1,0 +1,4 @@
+interface:
+  display_name: "Idea to Product"
+  short_description: "Evaluate, plan, and build ideas with responsible reuse"
+  default_prompt: "Use $idea-to-product to evaluate my idea, ask follow-up questions, and prepare a scored action plan with rights checks, costs, and a business-model chart."
